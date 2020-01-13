@@ -32,7 +32,7 @@
  ```
 
   This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
-
+  
 ## Main network
   Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
@@ -40,6 +40,12 @@
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
+  Run the same from Docker repo of images:
+ ```
+ docker run -it -p 8080:8080 -p 30000:30000 \
+   -v $(pwd)/DATA:/DATA \
+   --name tera nunoferro/tera:latest
+ ```  
 
   Run in the background as a service (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
@@ -47,6 +53,12 @@
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
+  Run the same from Docker repo of images:
+ ```
+ docker run -d --restart unless-stopped -p 8080:8080 -p 30000:30000 \
+   -v $(pwd)/DATA:/DATA \
+   --name tera nunoferro/tera:latest
+ ``` 
 
   Run in the background as a service. You may also want to change the `PASSWORD` (strongly reccommended) and `PORT` environment variables:
  ```
@@ -56,6 +68,14 @@
    -e HTTP_PORT=8090 \
    --name tera tera
  ```
+  Run the same from Docker repo of images:
+ ```
+ docker run -d --restart unless-stopped -p 8080:8090 -p 30000:30000 \
+   -v $(pwd)/DATA:/DATA \
+   -e PASSWORD=change_to_another_password \
+   -e HTTP_PORT=8090 \
+   --name tera nunoferro/tera:latest
+ ```
 
   Run on the background (using the host network - less secure, as all ports from inside the docker are exposed):
  ```
@@ -64,6 +84,14 @@
    -e PASSWORD=another_password \
    --name tera tera
  ```
+  Run the same from Docker repo of images: 
+ ```
+ docker run -d --restart unless-stopped --net=host \
+   -v $(pwd)/DATA:/DATA \
+   -e PASSWORD=another_password \
+   --name tera nunoferro/tera:latest
+ ```
+ 
 ## Test network
  If you want to run on the test network you need to change the volume to the `DATA-TEST` directory and set the command to `/tera/run-test.sh`. You may also want to change the `PORT` environment variable.
  

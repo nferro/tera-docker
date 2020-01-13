@@ -49,20 +49,20 @@
 
   Run in the background as a service (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
- docker run -d --restart unless-stopped -p 8080:8080 -p 30000:30000 \
+ docker run -d --restart always -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
   Run the same from the Docker repo without build:
  ```
- docker run -d --restart unless-stopped -p 8080:8080 -p 30000:30000 \
+ docker run -d --restart always -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    --name tera nunoferro/tera:latest
  ``` 
 
   Run in the background as a service. You may also want to change the `PASSWORD` (strongly reccommended) and `PORT` environment variables:
  ```
- docker run -d --restart unless-stopped -p 8080:8090 -p 30000:30000 \
+ docker run -d --restart always -p 8080:8090 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=change_to_another_password \
    -e HTTP_PORT=8090 \
@@ -70,7 +70,7 @@
  ```
   Run the same from the Docker repo without build:
  ```
- docker run -d --restart unless-stopped -p 8080:8090 -p 30000:30000 \
+ docker run -d --restart always -p 8080:8090 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=change_to_another_password \
    -e HTTP_PORT=8090 \
@@ -79,14 +79,14 @@
 
   Run on the background (using the host network - less secure, as all ports from inside the docker are exposed):
  ```
- docker run -d --restart unless-stopped --net=host \
+ docker run -d --restart always --net=host \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=another_password \
    --name tera tera
  ```
   Run the same from the Docker repo without build:
  ```
- docker run -d --restart unless-stopped --net=host \
+ docker run -d --restart always --net=host \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=another_password \
    --name tera nunoferro/tera:latest
@@ -105,7 +105,7 @@
 
  Run on the background (using the host network):
 ```
- docker run -d --restart unless-stopped --net=host \
+ docker run -d --restart always --net=host \
    -v $(pwd)/DATA-TEST:/DATA-TEST \
    -e PASSWORD=another_password \
    -e HTTP_PORT=8081 \

@@ -12,7 +12,7 @@
 
 ## Clone git repository
  ```
- git clone https://github.com/Bambarello/tera-docker.git
+ git clone https://github.com/nferro/tera-docker.git
  ```
 
 ## Build

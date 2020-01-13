@@ -40,7 +40,7 @@
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
-  Run the same from Docker repo of images:
+  Run the same from the Docker repo without build:
  ```
  docker run -it -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
@@ -53,7 +53,7 @@
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
-  Run the same from Docker repo of images:
+  Run the same from the Docker repo without build:
  ```
  docker run -d --restart unless-stopped -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
@@ -68,7 +68,7 @@
    -e HTTP_PORT=8090 \
    --name tera tera
  ```
-  Run the same from Docker repo of images:
+  Run the same from the Docker repo without build:
  ```
  docker run -d --restart unless-stopped -p 8080:8090 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
@@ -84,7 +84,7 @@
    -e PASSWORD=another_password \
    --name tera tera
  ```
-  Run the same from Docker repo of images: 
+  Run the same from the Docker repo without build:
  ```
  docker run -d --restart unless-stopped --net=host \
    -v $(pwd)/DATA:/DATA \

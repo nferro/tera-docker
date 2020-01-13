@@ -2,7 +2,7 @@
 
  ```
  sudo apt update; \
- sudo apt install docker.io git
+ sudo apt install docker.io git nano
  ```
 ## Clone git repository
  ```
@@ -23,7 +23,14 @@
  mkdir TERA
  cd TERA
  ```
-  
+
+## Ensure you have external ports open and/or forwarded if you're behind NAT. As example enable port 8080 and 30000:
+
+ ```
+ sudo ufw allow 8080 comment "Tera Web"
+ sudo ufw allow 30000 comment "Tera Node"
+ ```
+
   This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
 
 ## Main network

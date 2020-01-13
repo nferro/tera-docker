@@ -1,5 +1,4 @@
-## Preparation steps
-  Install the docker ang git packages:
+## Install the docker ang git packages:
 
  ```
  sudo apt update; \
@@ -16,7 +15,14 @@
  cd tera-docker
  ./build.sh
  ```
-  
+
+## Create Tera DATA folder (example below):
+
+ ```
+ cd ~
+ mkdir TERA
+ cd TERA
+ ```
   
   This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
 

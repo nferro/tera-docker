@@ -1,0 +1,19 @@
+FROM node:alpine
+
+RUN apk update
+RUN apk add python build-base
+
+RUN adduser -s /bin/bash -D tera
+USER tera
+
+COPY --chown=tera ./tera/Source /tera
+COPY --chown=tera ./scripts/* /tera/
+WORKDIR /tera
+
+RUN npm install
+
+EXPOSE 8080
+ENV PORT=8080
+ENV PASSWORD=changeme
+
+ENTRYPOINT [ "/tera/run-node.sh" ]

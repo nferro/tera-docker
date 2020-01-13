@@ -10,4 +10,4 @@ else
     cd ..
 fi
 
-docker build -f Dockerfile -t tera .
+docker build -f Dockerfile-alpine -t tera .

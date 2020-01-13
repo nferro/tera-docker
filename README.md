@@ -1,20 +1,52 @@
- This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
+## Preparation steps
+  Install the docker ang git packages:
+
+ ```
+ sudo apt update; \
+ sudo apt install docker.io git
+ ```
+  
+  
+  
+  This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
+
+## Clone git repository
+ ```
+ git clone https://github.com/Bambarello/tera-docker.git
+ ```
 
 ## Build
   Build image:
  ```
+ cd tera-docker
  ./build.sh
  ```
 
 ## Main network
-  Run interactively (forwarding ports):
+  Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
  docker run -it -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    --name tera tera
  ```
 
-  Run on the background (using the host network):
+  Run in the background as a service (forwarding ports 8080 for Web Interface and 30000 for the node):
+ ```
+ docker run -d --restart unless-stopped -p 8080:8080 -p 30000:30000 \
+   -v $(pwd)/DATA:/DATA \
+   --name tera tera
+ ```
+
+  Run in the background as a service. You may also want to change the `PASSWORD` (strongly reccommended) and `PORT` environment variables:
+ ```
+ docker run -d --restart unless-stopped -p 8080:8090 -p 30000:30000 \
+   -v $(pwd)/DATA:/DATA \
+   -e PASSWORD=change_to_another_password \
+   -e HTTP_PORT=8090 \
+   --name tera tera
+ ```
+
+  Run on the background (using the host network - less secure, as all ports from inside the docker are exposed):
  ```
  docker run -d --restart unless-stopped --net=host \
    -v $(pwd)/DATA:/DATA \

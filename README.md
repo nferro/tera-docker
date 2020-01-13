@@ -5,11 +5,6 @@
  sudo apt update; \
  sudo apt install docker.io git
  ```
-  
-  
-  
-  This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
-
 ## Clone git repository
  ```
  git clone https://github.com/nferro/tera-docker.git
@@ -21,6 +16,9 @@
  cd tera-docker
  ./build.sh
  ```
+  
+  
+  This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
 
 ## Main network
   Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):

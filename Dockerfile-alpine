@@ -12,6 +12,14 @@ WORKDIR /tera
 
 RUN npm install
 
+FROM node:alpine
+
+RUN adduser -s /bin/bash -D tera
+USER tera
+
+COPY --from=0 /tera /tera
+WORKDIR /tera
+
 EXPOSE 8080
 ENV PORT=8080
 ENV PASSWORD=changeme

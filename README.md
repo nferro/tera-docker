@@ -16,13 +16,14 @@
  ./build.sh
  ```
 
-## Create Tera DATA folder (example below):
+## Create TERA and DATA folder (example below):
 
  ```
  cd ~
  mkdir TERA
  cd TERA
  mkdir DATA
+ 
  # ensure non-root access to data folder
  sudo chmod -R 777 DATA
  ```
@@ -37,7 +38,8 @@
   This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
   
 ## Main network
-  Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):
+  Run Docker from TERA folder.
+    Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
  docker run -it -p 8080:8080 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \

@@ -36,8 +36,17 @@
  ```
 
   This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
-  
-## Main network
+
+## Main network: script for docker, firewall and node setup 
+ You may run the Tera node without building the docker, from the pre-populated image. Download the below script and change the ports if you want, also ensure the password is changed: `HTTP_PORT` for web-access (set as 8090 by default), `NODE_PORT` for node port and `NODE_PASS` to change the default password.
+ ```
+ wget https://raw.githubusercontent.com/Bambarello/tera-docker/master/tera-docker.sh
+ # edit variables
+ # nano tera-docker.sh
+ bash tera-docker.sh
+ ```
+
+## Main network: manual start with docker
   Run Docker from TERA folder.
     Run interactively (forwarding ports 8080 for Web Interface and 30000 for the node):
  ```
@@ -95,14 +104,6 @@
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=another_password \
    --name tera nunoferro/tera:latest
- ```
-## Main network: setup and run script
- You may run the Tera node without building the docker, from the pre-populated image. Download the below script and change the ports if you want, also ensure the password is changed: `HTTP_PORT` for web-access (set as 8090 by default), `NODE_PORT` for node port and `NODE_PASS` to change the default password.
- ```
- wget https://raw.githubusercontent.com/Bambarello/tera-docker/master/tera-docker.sh
- # edit variables
- # nano tera-docker.sh
- bash tera-docker.sh
  ```
 
 ## Test network

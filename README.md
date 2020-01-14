@@ -65,7 +65,7 @@
  docker run -d --restart always -p 8080:8090 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=change_to_another_password \
-   -e HTTP_PORT=8090 \
+   -e PORT=8090 \
    --name tera tera
  ```
   Run the same from the Docker repo without build:
@@ -73,7 +73,7 @@
  docker run -d --restart always -p 8080:8090 -p 30000:30000 \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=change_to_another_password \
-   -e HTTP_PORT=8090 \
+   -e PORT=8090 \
    --name tera nunoferro/tera:latest
  ```
 
@@ -108,7 +108,7 @@
  docker run -d --restart always --net=host \
    -v $(pwd)/DATA-TEST:/DATA-TEST \
    -e PASSWORD=another_password \
-   -e HTTP_PORT=8081 \
+   -e PORT=8081 \
    --name tera tera /tera/run-test.sh
  ```
 

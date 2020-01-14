@@ -96,7 +96,15 @@
    -e PASSWORD=another_password \
    --name tera nunoferro/tera:latest
  ```
- 
+## Main network: setup and run script
+ You may run the Tera node without building the docker, from the pre-populated image. Download the below script and change the ports if you want, also ensure the password is changed: `HTTP_PORT` for web-access (set as 8090 by default), `NODE_PORT` for node port and `NODE_PASS` to change the default password.
+ ```
+ wget https://raw.githubusercontent.com/Bambarello/tera-docker/master/tera-docker.sh
+ # edit variables
+ # nano tera-docker.sh
+ bash tera-docker.sh
+ ```
+
 ## Test network
  If you want to run on the test network you need to change the volume to the `DATA-TEST` directory and set the command to `/tera/run-test.sh`. You may also want to change the `PORT` environment variable.
  

@@ -22,6 +22,9 @@
  cd ~
  mkdir TERA
  cd TERA
+ mkdir DATA
+ # ensure non-root access to data folder
+ sudo chmod -R 777 DATA
  ```
 
 ## Ensure you have external ports open and/or forwarded if you're behind NAT. As example enable port 8080 and 30000:

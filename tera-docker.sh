@@ -1,8 +1,8 @@
 #!/bin/bash
 
 HTTP_PORT=8090
-NODE_PORT=30100
-NODE_PASS=123456
+NODE_PORT=30000
+NODE_PASS=changeme
 
 # update and install docker
 sudo apt update; \

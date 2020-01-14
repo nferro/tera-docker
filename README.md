@@ -1,4 +1,4 @@
-## Install the docker ang git packages:
+## Install the docker and git packages:
 
  ```
  sudo apt update; \

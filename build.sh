@@ -1,4 +1,4 @@
-REPOSRC=https://gitlab.com/terafoundation/tera.git
+REPOSRC=https://gitlab.com/terafoundation/tera2.git
 LOCALREPO=tera
 
 if [ ! -d $LOCALREPO_VC_DIR ]

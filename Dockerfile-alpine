@@ -22,6 +22,7 @@ WORKDIR /tera
 
 EXPOSE 8080
 ENV PORT=8080
+ENV NODE_PORT=30000
 ENV PASSWORD=changeme
 
 ENTRYPOINT [ "/tera/run-node.sh" ]

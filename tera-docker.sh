@@ -19,10 +19,11 @@ cd TERA
 mkdir DATA
 sudo chmod -R 777 DATA
 
-sudo docker run -d --restart always -p $HTTP_PORT:$HTTP_PORT -p $NODE_PORT:30000 \
+sudo docker run -d --restart always -p $HTTP_PORT:$HTTP_PORT -p $NODE_PORT:$NODE_PORT \
    -v $(pwd)/DATA:/DATA \
    -e PASSWORD=$NODE_PASS \
    -e PORT=$HTTP_PORT \
+   -e NODE_PORT=$NODE_PORT \
    --name tera nunoferro/tera:latest
 
 sudo docker logs -f tera

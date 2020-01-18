@@ -15,7 +15,7 @@ RUN npm install
 
 EXPOSE 8080
 ENV PORT=8080
-NODE PORT=30000
+ENV NODE_PORT=30000
 ENV PASSWORD=changeme
 
 CMD [ "/tera/run-node.sh" ]

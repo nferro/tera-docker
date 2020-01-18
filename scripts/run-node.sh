@@ -1,3 +1,3 @@
 #!/bin/sh
-node set httpport:$PORT password:$PASSWORD
+node set port:$NODE_PORT httpport:$PORT password:$PASSWORD
 node run-node.js

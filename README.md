@@ -1,10 +1,13 @@
  This Docker image expects the environment variables `PORT` and `PASSWORD` to define on which port the GUI listens and what password should be used to authenticate. By default port is `8080` and password is `changeme`.
 
-## Build
+# Build
   Build image:
  ```
  ./build.sh
  ```
+
+# Running
+
 
 ## Main network
   Run interactively (forwarding ports):
@@ -41,5 +44,5 @@
    --name tera tera /tera/run-test.sh
  ```
 
-
+# Donations
 If you find this useful please consider sending a donation to account #221489. :)

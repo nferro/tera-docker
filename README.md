@@ -21,7 +21,7 @@
  ```
  docker run -d --restart unless-stopped --net=host \
    -v $(pwd)/DATA:/DATA \
-   -e PASSWORD=another_password \
+   -e HTTP_PORT_PASSWORD=another_password \
    --name tera tera
  ```
 ## Test network

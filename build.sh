@@ -1,7 +1,9 @@
-REPOSRC=https://gitlab.com/terafoundation/tera.git
+#!/bin/bash
+
+REPOSRC=https://gitlab.com/terafoundation/tera2.git
 LOCALREPO=tera
 
-if [ ! -d $LOCALREPO_VC_DIR ]
+if [ ! -d $LOCALREPO ]
 then
     git clone $REPOSRC $LOCALREPO
 else
@@ -10,4 +12,4 @@ else
     cd ..
 fi
 
-docker build -f Dockerfile -t tera .
+docker build -f Dockerfile -t tera . 

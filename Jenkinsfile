@@ -48,6 +48,7 @@ pipeline {
         script {
           docker.withRegistry( '', registryCredential ) {
             image.push()
+            image.push("latest")
           }
         }
       }

@@ -26,8 +26,10 @@ pipeline {
                     [$class: 'RelativeTargetDirectory', relativeTargetDir: 'tera']
                   ]
                 ])
-        commit_message = sh(returnStdout: true, script: "git log -n 1 ${checkout_result.GIT_COMMIT}")
-        currentBuild.description = commit_message
+        scripts {
+          commit_message = sh(returnStdout: true, script: "git log -n 1 ${checkout_result.GIT_COMMIT}")
+          currentBuild.description = commit_message
+        }
       }
     }
     stage('Get Version') {

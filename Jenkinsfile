@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Checkout tera') {
       steps {
-        checkout([$class: 'GitSCM',
+        checkout_result = checkout([$class: 'GitSCM',
                   branches: [[name: '*/master']],
                   userRemoteConfigs: [[url: 'https://gitlab.com/terafoundation/tera2.git']],
                   extensions: [

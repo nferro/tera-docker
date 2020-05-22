@@ -26,15 +26,13 @@ pipeline {
                     [$class: 'RelativeTargetDirectory', relativeTargetDir: 'tera']
                   ]
                 ])
-        scripts {
-          commit_message = sh(returnStdout: true, script: "git log -n 1 ${checkout_result.GIT_COMMIT}")
-          currentBuild.description = commit_message
-        }
       }
     }
     stage('Get Version') {
         steps {
           script {
+            commit_message = sh(returnStdout: true, script: "git log -n 1 ${checkout_result.GIT_COMMIT}")
+            currentBuild.description = commit_message
             tag = sh(returnStdout: true, script: "sed -nE 's/global\\.UPDATE_CODE_VERSION_NUM\\s*=\\s*(.*);/\\1/p' tera/Source/core/constant.js").trim()
             echo "Tera version: " + tag
           }  

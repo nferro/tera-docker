@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Checkout tera') {
       steps {
-        checkout_result = checkout([$class: 'GitSCM',
+        checkout([$class: 'GitSCM',
                   branches: [[name: '*/master']],
                   userRemoteConfigs: [[url: 'https://gitlab.com/terafoundation/tera2.git']],
                   extensions: [
@@ -31,8 +31,6 @@ pipeline {
     stage('Get Version') {
         steps {
           script {
-            commit_message = sh(returnStdout: true, script: "git log -n 1 ${checkout_result.GIT_COMMIT}")
-            currentBuild.description = commit_message
             tag = sh(returnStdout: true, script: "sed -nE 's/global\\.UPDATE_CODE_VERSION_NUM\\s*=\\s*(.*);/\\1/p' tera/Source/core/constant.js").trim()
             echo "Tera version: " + tag
           }  

@@ -8,10 +8,6 @@ NODE_PASS=changeme321
 sudo apt update; \
 sudo apt install docker.io
 
-# update the ufw rules, if exist
-sudo ufw allow $HTTP_PORT comment "Tera Web Port"
-sudo ufw allow $NODE_PORT comment "Tera Node Port"
-
 # create TERA dir and DATA dir
 cd ~
 mkdir TERA

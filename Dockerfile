@@ -2,7 +2,7 @@
 FROM node:alpine
 
 RUN apk update
-RUN apk add python build-base
+RUN apk add build-base
 
 RUN adduser -s /bin/bash -D tera
 USER tera
